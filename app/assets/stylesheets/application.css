@@ -16,3 +16,6 @@
 .flex{
   display: flex;
 }
+#sign_up_button{
+  padding-right: 10px;
+}

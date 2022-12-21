@@ -1,0 +1,14 @@
+<h1 class="mb-4">Сброс пароля</h1>
+<%= form_with url: password_reset_path do |form| %>
+  <div class = "mb-3 row">
+    <div class = "col-sm-2 col-form-label">
+      <%= form.label :email,"Почта"%>
+    </div>
+
+    <div class = "col-sm-10">
+      <%= form.email_field :email, class: 'form-control form-control-lg', id: 'email_field' %>
+    </div>
+  </div>
+  <p><%= form.submit("Сбросить пароль", id: 'btn_submit', class: 'btn btn-primary') %></p>
+  <p><%= link_to 'Назад', new_session_path, class: 'btn btn-secondary', id: 'log_in_btn' %></p> 
+<% end %>

@@ -1,0 +1,26 @@
+<h1 class="mb-4">Обновление пароля</h1>
+<%= form_with model: @user, url: password_reset_path, method: :patch do |form| %>
+  <%= form.hidden_field :password_reset_token, value: @user.password_reset_token %>
+  <%= form.hidden_field :email, value: @user.email %>
+
+  <div class = "mb-3 row">
+    <div class = "col-sm-2 col-form-label">
+      <%= form.label :password,"Введите новый пароль"%>
+    </div>
+
+    <div class = "col-sm-10">
+      <%= form.password_field :password, class: 'form-control form-control-lg', id: 'password_field' %>
+    </div>
+  </div>
+
+  <div class = "mb-3 row">
+    <div class = "col-sm-2 col-form-label">
+      <%= form.label :password_confirmation,"Подтвердите пароль"%>
+    </div>
+
+    <div class = "col-sm-10">
+      <%= form.password_field :password_confirmation, class: 'form-control form-control-lg', id: 'password_confirmation_field' %>
+    </div>
+  </div>
+  <p><%= form.submit("Обновить пароль", id: 'btn_submit', class: 'btn btn-primary') %></p>
+<% end %>

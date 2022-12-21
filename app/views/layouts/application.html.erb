@@ -25,29 +25,32 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <%= current_user.name %>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#"><%= link_to 'Редактировать профиль', edit_user_path(current_user), class: 'nav-link px-2',id: 'edit_btn' %></a></li>
-                    <li><a class="dropdown-item" href="#"><%= link_to 'Выйти', session_path, data: {turbo_method: :delete}, class: 'nav-link px-2', id: 'log_out_btn' %></a></li>
+                    <li><%= link_to 'Редактировать профиль', edit_user_path(current_user), class: 'nav-link px-2',id: 'edit_btn' %></li>
+                    <li><%= link_to 'Выйти', session_path, data: {turbo_method: :delete}, class: 'nav-link px-2', id: 'log_out_btn' %></li>
                   </ul>
                 </li>
               </ul>
-            </div>
+            
           <% else %>
-            <li><%= link_to 'Регистрация', new_user_path, id: 'sing_up_button' %></li>
-            <li><%= link_to 'Вход', new_session_path, id: 'log_in_btn' %></li>
+            <%= link_to 'Регистрация', new_user_path, class: 'text-white nav-link', id: 'sign_up_button' %>
+            <%= link_to 'Вход', new_session_path, class: 'text-white nav-link', id: 'log_in_btn' %>
           <% end %>
-        </div>
+          </div>
+          </div>
       </div>
     </nav>
   </header>
 
   <body>
-    <div class = "container">
+    <div>
       <% flash.each do |type, msg| %>
         <div class='alert alert-info'>
           <strong id='msg'><%= msg %></strong>
         </div>
       <% end %>
     </div>
-    <%= yield %>
+    <div style= "padding:15px">
+      <%= yield %>
+    </div>
   </body>
 </html>
