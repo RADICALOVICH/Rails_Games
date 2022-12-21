@@ -6,9 +6,15 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
-      sign_in(user)
-      flash[:success] = "Welcome back, #{current_user.name}"
-      redirect_to root_path
+      if user.email_confirmed
+        sign_in(user)
+        flash[:success] = "С возвращением, #{current_user.name}"
+        redirect_to root_path
+      else
+        flash[:error] = 'Пожалуйста, активируйте свою учетную запись, следуя
+        инструкции в электронном письме с подтверждением учетной записи'
+        redirect_to new_session_path
+      end
     else
       flash[:warning] = 'Ошибка в вводе почты и/или пароля'
       redirect_to new_session_path
@@ -17,7 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    flash[:success] = 'See you later!'
+    flash[:success] = 'Ждем вас снова!'
     redirect_to root_path
   end
 end
