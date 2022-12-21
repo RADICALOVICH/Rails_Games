@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  
+
   def new
     @user = User.new
   end
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if @user.update(user_params)
+    if current_user.update(user_params)
       flash[:success] = 'Данные обновлены'
       redirect_to root_path
     else
