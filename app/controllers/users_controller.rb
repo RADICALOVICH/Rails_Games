@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       flash[:success] = 'Данные обновлены'
       redirect_to root_path
     else
-      flash[:warning] = 'Значения полей не могут быть пустыми'
+      flash[:warning] = current_user.errors.full_messages.to_sentence
       redirect_to edit_user_path
     end
   end
