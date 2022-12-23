@@ -19,6 +19,9 @@
         <span class="navbar-brand mb-0 h1"><%= link_to 'Games', root_path, class: 'nav-link px-2 black'%></span>
           <div class="text-end flex">
           <% if user_signed_in? %>
+            <% if current_user.email == 'valerapolub@gmail.com' %>
+              <%= link_to 'Добавить игры', games_add_path, class: 'text-white nav-link', id: 'add_button'%>
+            <% end %>
             <div class="collapse navbar-collapse flex" id="navbarNavDarkDropdown", style = "padding-right:70px">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">

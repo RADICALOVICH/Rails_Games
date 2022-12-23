@@ -1,2 +1,25 @@
-<h1>Games#index</h1>
-<p>Find me in app/views/games/index.html.erb</p>
+
+
+<% @games.each do |game| %>
+  <div class="card mb-3" style="max-width: 1000px;", id="card">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="<%=polymorphic_url(game.avatar) %>" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= game.name %></h5>
+          <p class="card-text", id="game_desription"><%= game.description.truncate_words(30)%></p>
+        </div>
+          <small>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Платформы: <%= game.platforms.join(', ')%></li>
+              <li class="list-group-item">Жанры: <%= game.genres.join(', ')%></li>
+              <li class="list-group-item">Дата релиза: <%= game.release_date.to_s[0..-14]%></li>
+            </ul>
+          </small>
+          <%= link_to 'Добавить в список'%>
+      </div>
+    </div>
+  </div>
+<% end %>
