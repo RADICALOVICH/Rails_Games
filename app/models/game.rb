@@ -11,4 +11,7 @@ class Game < ApplicationRecord
     downloaded_image = URI.parse(avatar_url).open
     avatar.attach(io: downloaded_image, filename: "#{name}.jpg")
   end
+
+  scope :released, -> { where("release_date < ?", Time.current) }
+  scope :unreleased, -> { where("release_date > ?", Time.current) }
 end

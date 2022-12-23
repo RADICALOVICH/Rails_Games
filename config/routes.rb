@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'games/index'
   get 'games/wishlist'
   get 'games/add'
+  post 'games/add_game'
+  post 'games/delete_game'
+  post 'wishlists/delete_game'
   resource :password_reset, only: %i[new create edit update ]
   #resources :users, only: %i[new create edit update]
   resource :session, only: %i[new create destroy]

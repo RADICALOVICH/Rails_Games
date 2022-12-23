@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_22_172338) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_23_150830) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_172338) do
     t.string "confirm_token"
     t.string "password_reset_token"
     t.datetime "password_reset_token_sent_at"
-    t.integer "wishlist", array: true
+    t.integer "wishlist", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["password_reset_token"], name: "index_users_on_password_reset_token"
   end

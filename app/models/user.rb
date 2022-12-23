@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :old_password, :admin_edit
  
+  has_many :games
   has_secure_password validations: false
 
   validates :email, presence: true, uniqueness: true
