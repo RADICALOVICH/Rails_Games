@@ -1,3 +1,21 @@
+<div id = 'change_buttons'>
+  <% if current_page?(:controller => 'wishlists', :action => 'index') %>
+    <div id = 'btn'><%= button_to "Список всех игр", wishlists_index_path,method: :get, class: 'btn btn-primary disabled' %></div>
+    <div id = 'btn'><%= button_to "Уже вышли", wishlists_released_path,method: :get, class: 'btn btn-primary'%></div>
+    <div id = 'btn'><%= button_to "Еще не вышли", wishlists_unreleased_path,method: :get, class: 'btn btn-primary'%></div>
+  <% end %>
+  <% if current_page?(:controller => 'wishlists', :action => 'released') %>
+    <div id = 'btn'><%= button_to "Список всех игр", wishlists_index_path,method: :get, class: 'btn btn-primary ' %></div>
+    <div id = 'btn'><%= button_to "Уже вышли", wishlists_released_path,method: :get, class: 'btn btn-primary disabled'%></div>
+    <div id = 'btn'><%= button_to "Еще не вышли", wishlists_unreleased_path,method: :get, class: 'btn btn-primary'%></div>
+  <% end %>
+  <% if current_page?(:controller => 'wishlists', :action => 'unreleased') %>
+    <div id = 'btn'><%= button_to "Список всех игр", wishlists_index_path,method: :get, class: 'btn btn-primary ' %></div>
+    <div id = 'btn'><%= button_to "Уже вышли", wishlists_released_path,method: :get, class: 'btn btn-primary'%></div>
+    <div id = 'btn'><%= button_to "Еще не вышли", wishlists_unreleased_path,method: :get, class: 'btn btn-primary disabled'%></div>
+  <% end %>
+</div>
+
 <div id ='wishlist'>
   <% @games.each do |game| %>
     <div class="card mb-3" style="max-width: 1000px;", id="card_game_<%=game.id%>">

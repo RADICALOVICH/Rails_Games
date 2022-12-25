@@ -23,6 +23,10 @@
               <% else %>
                 <%= button_to "Добавить в желаемое", games_add_game_path,params: { game: game.id }, class: 'btn btn-primary'%>
               <% end %>
+            <% else %>
+            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="no">
+              <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Добавить в желаемое</button>
+            </span>
             <% end %>
           </div>
       </div>

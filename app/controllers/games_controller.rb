@@ -13,7 +13,8 @@ class GamesController < ApplicationController
       redirect_to root_path
     else
       sql = 'fields name, genres.name, platforms.name, cover.url, first_release_date, summary;
-      where cover.url != null & genres != null & first_release_date != null & summary != null & platforms = 167;
+      where cover.url != null & genres != null & first_release_date != null & summary != null & 
+      (platforms = 167 | platforms = 6);
       limit 100;'
       response = get_response(sql)
       json = JSON.parse(response.body)
