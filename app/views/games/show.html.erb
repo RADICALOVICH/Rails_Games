@@ -1,0 +1,39 @@
+<div class ='row game-info'>
+  <h1><%= @game.name%></h1>
+    <div class ='col-md-4'><%= image_tag(@game.avatar)%></div>
+    <div class ='col-md-8'>
+      <p><%= @game.description %></p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Платформы: <%= @game.platforms.join(', ')%></li>
+        <li class="list-group-item">Жанры: <%= @game.genres.join(', ')%></li>
+        <li class="list-group-item">Дата релиза: <%= @game.release_date.to_s[0..-14]%></li>
+      </ul>
+    </div>
+</div>
+<h3 class ='text-center'>Скриншоты</h3>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <% @game.screenshots.drop(1).each_with_index do |n,index|%>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%=(index+1)%>" aria-label="<%="Slide #{(index + 1)}" %>"</button>
+    <% end %>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100"  src="<%= polymorphic_url(@game.screenshots[0]) %>">
+    </div>
+    <% @game.screenshots.drop(1).each do |n|%>
+      <div class="carousel-item">
+        <img class="d-block w-100"  src="<%= polymorphic_url(n) %>">
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Предыдущий</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Следующий</span>
+  </button>
+</div>

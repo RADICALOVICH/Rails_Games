@@ -1,3 +1,6 @@
+<div class = 'text-end', id ='paginator'>
+  <%= paginate @games,theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center", nav_class: "d-inline-block" %>
+</div>
 <div id = 'change_buttons'>
   <% if current_page?(:controller => 'wishlists', :action => 'index') %>
     <div id = 'btn'><%= button_to "Список всех игр", wishlists_index_path,method: :get, class: 'btn btn-primary disabled' %></div>
@@ -25,7 +28,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title"><%= game.name %></h5>
+            <h5 class="card-title"><%= link_to "#{game.name}", "games/#{game.id}" %></h5>
             <p class="card-text", id="game_desription"><%= game.description.truncate_words(30)%></p>
           </div>
             <small>
@@ -48,4 +51,7 @@
       </div>
     </div>
   <% end %>
+</div>
+<div class = 'text-end', id ='paginator'>
+  <%= paginate @games,theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center", nav_class: "d-inline-block" %>
 </div>

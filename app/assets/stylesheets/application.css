@@ -46,3 +46,12 @@
   margin-right:30px;
   display: inline-block;
 }
+.carousel {
+  margin: auto;
+}
+.game-info{
+  margin-bottom: 20px;
+}
+.filter{
+  margin-bottom: 20px;
+}

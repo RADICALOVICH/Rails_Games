@@ -4,7 +4,11 @@ class GamesController < ApplicationController
   before_action :user_is_admin?, only: :add_games
 
   def index
-    @games = Game.all
+    @games = Game.all.page params[:page]
+  end
+
+  def show
+    @game = Game.find(params[:id])
   end
 
   def add
@@ -12,10 +16,10 @@ class GamesController < ApplicationController
       flash[:warning] = 'Только для админа!'
       redirect_to root_path
     else
-      sql = 'fields name, genres.name, platforms.name, cover.url, first_release_date, summary;
-      where cover.url != null & genres != null & first_release_date != null & summary != null & 
-      (platforms = 167 | platforms = 6);
-      limit 100;'
+      sql = 'fields name, genres.name, platforms.name, cover.url, first_release_date, summary, screenshots.url;
+      where cover.url != null & genres != null & first_release_date != null & summary != null & screenshots.url != null &
+      platforms = 167;
+      limit 60;'
       response = get_response(sql)
       json = JSON.parse(response.body)
       add_to_database(json)
@@ -33,5 +37,8 @@ class GamesController < ApplicationController
     list = current_user.wishlist - @str.split.map(&:to_i)
     current_user.update(wishlist: list)
   end
-  
+
+  def search
+    @games = Game.where('lower(name) LIKE ?', Game.sanitize_sql_like(params[:name].downcase) + "%").page params[:page]
+  end
 end
