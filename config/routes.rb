@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   post 'games/search'
   get '/games/:id', to: 'games#show'
 
+  resources :games do
+    post '/search/:page', action: :search, on: :collection
+  end
+
   resource :password_reset, only: %i[new create edit update]
   resource :session, only: %i[new create destroy]
   resources :users do

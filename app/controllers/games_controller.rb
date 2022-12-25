@@ -18,8 +18,8 @@ class GamesController < ApplicationController
     else
       sql = 'fields name, genres.name, platforms.name, cover.url, first_release_date, summary, screenshots.url;
       where cover.url != null & genres != null & first_release_date != null & summary != null & screenshots.url != null &
-      platforms = 167;
-      limit 60;'
+       platforms = (6,48,49,167,169) & first_release_date >= 1577885970;
+      limit 100;'
       response = get_response(sql)
       json = JSON.parse(response.body)
       add_to_database(json)
@@ -39,6 +39,6 @@ class GamesController < ApplicationController
   end
 
   def search
-    @games = Game.where('lower(name) LIKE ?', Game.sanitize_sql_like(params[:name].downcase) + "%").page params[:page]
+    @games = Game.where('lower(name) LIKE ?', "%" + (Game.sanitize_sql_like(params[:name].downcase)) + "%")
   end
 end
