@@ -8,6 +8,19 @@
         <li class="list-group-item"><%= t('.genres') %>: <%= @game.genres.join(', ')%></li>
         <li class="list-group-item"><%= t('.release_date') %>: <%= @game.release_date.to_s[0..-14]%></li>
       </ul>
+      <div class= 'button' id = 'wishlist-button_<%=@game.id%>'>  
+        <% if user_signed_in? %>
+          <% if current_user.wishlist&.include?(@game.id)%>
+            <%= button_to t('.wishlist_delete'), games_delete_game_path, params: { game: @game.id }, class: 'btn btn-danger'%>
+          <% else %>
+            <%= button_to t('.wishlist_add'), games_add_game_path,params: { game: @game.id }, class: 'btn btn-primary'%>
+          <% end %>
+        <% else %>
+        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="no">
+          <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled><%= t('.wishlist_add') %></button>
+        </span>
+        <% end %>
+      </div>
     </div>
 </div>
 <h3 class ='text-center'><%= t('.screenshots') %></h3>

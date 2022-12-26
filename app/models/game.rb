@@ -7,14 +7,12 @@ class Game < ApplicationRecord
   paginates_per 10
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
-  validates_presence_of :description, :avatar_url, :platforms, :genres, :release_date
+  validates_presence_of :description, :avatar_url, :platforms, :genres, :release_date, :screenshots_urls
 
   def grab_image
-    p avatar_url
     downloaded_image = URI.parse(avatar_url).open
     avatar.attach(io: downloaded_image, filename: "#{name}.jpg")
     screenshots_urls.each_with_index do |n, i|
-      p n
       downloaded_image = URI.parse(n).open
       screenshots.attach(io: downloaded_image, filename: "#{name}_screenshot_#{i}.jpg")
     end

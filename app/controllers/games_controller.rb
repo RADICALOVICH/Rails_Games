@@ -16,9 +16,9 @@ class GamesController < ApplicationController
       flash[:warning] = t('.warning')
       redirect_to root_path
     else
-      sql = 'search "God of war"; fields name, genres.name, platforms.name, cover.url, first_release_date, summary, screenshots.url;
+      sql = 'search "Ratchet & Clank: Rift Apart"; fields name, genres.name, platforms.name, cover.url, first_release_date, summary, screenshots.url;
       where cover.url != null & genres != null & first_release_date != null & summary != null & screenshots.url != null;
-      limit 100;'
+      limit 1;'
       response = get_response(sql)
       json = JSON.parse(response.body)
       add_to_database(json)

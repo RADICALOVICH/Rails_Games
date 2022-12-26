@@ -29,7 +29,7 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <%= current_user.name %>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><%= link_to t('navbar.dropdown.edit'), edit_user_path(current_user), class: 'nav-link px-2',id: 'edit_btn' %></li>
+                    <li><%= link_to t('navbar.dropdown.edit'), edit_user_path(current_user), class: 'nav-link px-2',id: 'edit_user_btn' %></li>
                     <li><%= link_to t('navbar.dropdown.log_out'), session_path, data: {turbo_method: :delete}, class: 'nav-link px-2', id: 'log_out_btn' %></li>
                   </ul>
                 </li>

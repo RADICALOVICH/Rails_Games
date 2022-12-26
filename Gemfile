@@ -60,9 +60,15 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
-  gem 'rails-controller-testing'
 end
 
+group :test do
+  gem 'rails-controller-testing' # гем для тестирования контроллеров (нам нужен метод assigns)
+  gem 'faker' # гем для генерирования случайных данных
+  gem 'shoulda-matchers' # гем для более простых записей тестов (будет использоваться в тестах модели)
+  gem 'capybara'
+  gem 'webdrivers'
+end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
