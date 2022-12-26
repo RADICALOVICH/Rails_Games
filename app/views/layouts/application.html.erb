@@ -16,28 +16,28 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1"><%= link_to 'Games', root_path, class: 'nav-link px-2 black'%></span>
+        <span class="navbar-brand mb-0 h1"><%= link_to t('navbar.title'), root_path, class: 'nav-link px-2 black'%></span>
           <div class="text-end flex">
           <% if user_signed_in? %>
             <% if current_user.email == 'valerapolub@gmail.com' %>
-              <%= link_to 'Добавить игры', games_add_path, class: 'text-white nav-link', id: 'add_button'%>
+              <%= link_to t('navbar.add_games'), games_add_path, class: 'text-white nav-link', id: 'add_button'%>
             <% end %>
-            <%= link_to 'Мой список', wishlists_index_path, class: 'text-white nav-link', id: 'wishlist_button'%>
+            <%= link_to t('navbar.wishlist'), wishlists_index_path, class: 'text-white nav-link', id: 'wishlist_button'%>
             <div class="collapse navbar-collapse flex" id="navbarNavDarkDropdown", style = "padding-right:70px">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <%= current_user.name %>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><%= link_to 'Редактировать профиль', edit_user_path(current_user), class: 'nav-link px-2',id: 'edit_btn' %></li>
-                    <li><%= link_to 'Выйти', session_path, data: {turbo_method: :delete}, class: 'nav-link px-2', id: 'log_out_btn' %></li>
+                    <li><%= link_to t('navbar.dropdown.edit'), edit_user_path(current_user), class: 'nav-link px-2',id: 'edit_btn' %></li>
+                    <li><%= link_to t('navbar.dropdown.log_out'), session_path, data: {turbo_method: :delete}, class: 'nav-link px-2', id: 'log_out_btn' %></li>
                   </ul>
                 </li>
               </ul>
             
           <% else %>
-            <%= link_to 'Регистрация', new_user_path, class: 'text-white nav-link', id: 'sign_up_button' %>
-            <%= link_to 'Вход', new_session_path, class: 'text-white nav-link', id: 'log_in_btn' %>
+            <%= link_to t('navbar.registration'), new_user_path, class: 'text-white nav-link', id: 'sign_up_button' %>
+            <%= link_to t('navbar.log_in'), new_session_path, class: 'text-white nav-link', id: 'log_in_btn' %>
           <% end %>
           </div>
           </div>

@@ -31,7 +31,8 @@ class User < ApplicationRecord
   end
 
   def password_reset_period_valid?
-    password_reset_token_sent_at.present? && Time.current - password_reset_token_sent_at <= 60.minutes
+    password_reset_token_sent_at.present? && Time.current - password_reset_token_sent_at <= 
+    4.hours
   end
 
   private

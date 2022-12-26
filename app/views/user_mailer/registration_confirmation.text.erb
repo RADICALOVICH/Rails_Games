@@ -1,5 +1,5 @@
-Привет, <%= @user.name %>,
+<%= t('mailer.email_confirmation.hello')%>, <%= @user.name %>!
 
-Спасибо за регистрацию! Чтобы подтвердить регистрацию, щелкните URL-адрес ниже.
+<%= t('mailer.email_confirmation.text')%>
 
 <%= confirm_email_user_url(@user.confirm_token) %>

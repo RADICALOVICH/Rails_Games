@@ -1,16 +1,8 @@
-<% if @ok == false %>
-  <h2>Ошибки ввода:<h2>
-  <ul>
-    <% current_user.errors.each do |error| %>
-	  <li><%= error.full_message %></li>
-    <% end %>
-  </ul>
-<% end %>
-<h1 class ="mb-4">Редактирование профиля</h1>
+<h1 class ="mb-4"><%= t('form.edit_profile')%></h1>
 <%= form_with model: current_user do |form| %>
   <div class = "mb-3 row">
     <div class = "col-sm-2 col-form-label">
-      <%= form.label :email, 'Почта' %>
+      <%= form.label :email, t('form.email') %>
     </div>
 
     <div class = "col-sm-10">
@@ -20,7 +12,7 @@
 
   <div class = "mb-3 row">
     <div class = "col-sm-2 col-form-label">
-      <%= form.label :name, 'Имя'%>
+      <%= form.label :name, t('form.name')%>
     </div>
 
     <div class = "col-sm-10">
@@ -30,7 +22,7 @@
 
   <div class = "mb-3 row">
     <div class = "col-sm-2 col-form-label">
-      <%= form.label :old_password, 'Старый пароль'%>
+      <%= form.label :old_password, t('form.old_password')%>
     </div>
 
     <div class = "col-sm-10">
@@ -40,7 +32,7 @@
 
   <div class = "mb-3 row">
     <div class = "col-sm-2 col-form-label">
-      <%= form.label :password, 'Новый пароль'%>
+      <%= form.label :password, t('form.new_password')%>
     </div>
 
     <div class = "col-sm-10">
@@ -50,12 +42,12 @@
 
   <div class = "mb-3 row">
     <div class = "col-sm-2 col-form-label">
-      <%= form.label :password_confirmation, 'Повторите новый пароль'%>
+      <%= form.label :password_confirmation, t('form.password_confirmation')%>
     </div>
 
     <div class = "col-sm-10">
       <%= form.password_field :password_confirmation, class: 'form-control form-control-lg' %>
     </div>
   </div>
-  <p><%= form.submit("Обновить", id: 'btn', class: 'btn btn-primary') %></p>
+  <p><%= form.submit(t('form.update'), id: 'btn', class: 'btn btn-primary') %></p>
 <% end %>

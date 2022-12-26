@@ -1,0 +1,40 @@
+ru:
+  activerecord:
+    models:
+      user:
+        attributes:
+          email: 'Почта'
+          name: 'Имя'
+          password: 'Пароль'
+          password_confirmation: 'Подтверждение пароля'
+          old_password: 'Старый пароль'
+  navbar:
+    title: 'Игры'
+    add_games: 'Добавить игры'
+    wishlist: 'Мой список'
+    registration: 'Регистрация'
+    log_in: 'Вход'
+    dropdown:
+      edit: 'Редактировать профиль'
+      log_out: 'Выйти'
+  form:
+    email: 'Почта'
+    name: 'Имя'
+    password: 'Пароль'
+    password_confirmation: 'Подтверждение пароля'
+    authorization: 'Войти'
+    sign_up: 'Зарегистрироваться'
+    forgot_password: 'Забыли пароль?'
+    reset_password: 'Сбросить пароль'
+    update_password: 'Обновить пароль'
+    update: 'Обновить'
+    new_password: 'Новый пароль'
+    old_password: 'Старый пароль'
+    back: 'Назад'
+    edit_profile: 'Редактирование профиля'
+  mailer:
+    email_confirmation:
+      hello: 'Привет'
+      text: 'Спасибо за регистрацию! Чтобы подтвердить регистрацию, щелкните URL-адрес ниже.'
+    password_reset:
+      text: 'Кто-то запросил сброс пароля для вашего аккаунта. Пожалуйста, пройдите по ссылке.'

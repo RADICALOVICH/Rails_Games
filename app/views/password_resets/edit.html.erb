@@ -5,7 +5,7 @@
 
   <div class = "mb-3 row">
     <div class = "col-sm-2 col-form-label">
-      <%= form.label :password,"Введите новый пароль"%>
+      <%= form.label :password, t('form.new_password')%>
     </div>
 
     <div class = "col-sm-10">
@@ -15,12 +15,12 @@
 
   <div class = "mb-3 row">
     <div class = "col-sm-2 col-form-label">
-      <%= form.label :password_confirmation,"Подтвердите пароль"%>
+      <%= form.label :password_confirmation,t('form.password_confirmation')%>
     </div>
 
     <div class = "col-sm-10">
       <%= form.password_field :password_confirmation, class: 'form-control form-control-lg', id: 'password_confirmation_field' %>
     </div>
   </div>
-  <p><%= form.submit("Обновить пароль", id: 'btn_submit', class: 'btn btn-primary') %></p>
+  <p><%= form.submit(t('form.update_password'), id: 'btn_submit', class: 'btn btn-primary') %></p>
 <% end %>
