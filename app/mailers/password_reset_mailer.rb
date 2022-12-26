@@ -3,6 +3,6 @@ class PasswordResetMailer < ActionMailer::Base
 
   def reset_email(user)
     @user = user
-    mail to: @user.email, subject: 'Сброс пароля'
+    mail to: @user.email, subject: 'Password reset'
   end
 end
