@@ -1,4 +1,4 @@
-<h1 class="mb-4">Обновление пароля</h1>
+<h1 class="mb-4"><%= t('form.password_update') %></h1>
 <%= form_with model: @user, url: password_reset_path, method: :patch do |form| %>
   <%= form.hidden_field :password_reset_token, value: @user.password_reset_token %>
   <%= form.hidden_field :email, value: @user.email %>

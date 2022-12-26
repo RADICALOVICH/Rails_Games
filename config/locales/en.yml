@@ -1,3 +1,125 @@
 en:
+  activerecord:
+    attributes:
+      user:
+        email: 'email'
+        name: 'name'
+        password: 'password'
+        password_confirmation: 'password confirmation'
+        old_password: 'old password'   
+         
   navbar:
     title: 'Games'
+    add_games: 'Add games'
+    wishlist: 'Wishlist'
+    registration: 'Sign Up'
+    log_in: 'Log In'
+    dropdown:
+      edit: 'Edit profile'
+      log_out: 'Log out'
+
+  users:
+    create:
+      success: 'Confirm your email in the email'
+      notice: 'Error in data entry or such user already exists'
+    update:
+      success: 'Profile successfully updated'
+    confirm_email:
+      success: 'Registration successful'
+      error: 'This user does not exist!'
+      
+  sessions:
+    create:
+      success: 'Welcome back,'
+      error: 'Please activate your account by following
+        instructions in the account confirmation email'
+      warning: 'Error in mail and / or password'
+    destroy:
+      success: 'See you later!'
+
+  password_resets:
+    create:
+      success: 'Email with instructions was sent'
+    update:
+      success: 'Password updated successfully'
+      warning: 'The entered passwords do not match'
+    edit:
+      warning: 'Failed to update password'
+
+  global:
+    no_authentication: 'You are already log in'
+    authentication: 'You are not log in'
+    not_right: 'is wrong'
+
+  form:
+    registration: 'Registration'
+    authorization: 'Authorization'
+    password_reset: 'Password reset'
+    password_update: 'Password update'
+    email: 'Email'
+    name: 'Name'
+    password: 'Password'
+    password_confirmation: 'Password confirmation'
+    authorization: 'Log in'
+    sign_up: 'Sign up'
+    forgot_password: 'Forgot password?'
+    reset_password: 'Reset password'
+    update_password: 'Update password'
+    update: 'Update'
+    new_password: 'New password'
+    old_password: 'Old password'
+    back: 'Back'
+    edit_profile: 'Edit profile'
+
+  mailer:
+    email_confirmation:
+      hello: 'Hello'
+      text: 'Thank you for registering! To confirm your registration, click the URL below.'
+    password_reset:
+      text: 'Someone has requested a password reset for your account. Please follow the link'
+
+  games:
+    add:
+      warning: 'Only for admin!'
+    index:
+      search: 'Search'
+      wishlist_delete: 'Delete from wishlist'
+      wishlist_add: 'Add to wishlist'
+      name: 'Name'
+      description: 'Description'
+      platforms: 'Platforms'
+      genres: 'Genres'
+      release_date: 'Release date'
+      find: 'Find'
+    show:
+      wishlist_delete: 'Delete from wishlist'
+      wishlist_add: 'Add to wishlist'
+      description: 'Description'
+      platforms: 'Platforms'
+      genres: 'Genres'
+      release_date: 'Release date'
+      screenshots: 'Screenshots'
+    search:
+      wishlist_delete: 'Delete from wishlist'
+      wishlist_add: 'Add to wishlist'
+      find: 'Find'
+      result: 'Result by'
+      description: 'Description'
+      platforms: 'Platforms'
+      genres: 'Genres'
+      release_date: 'Release date'
+    change_buttons:
+      wishlist_delete: 'Delete from wishlist'
+      wishlist_add: 'Add to wishlist'
+
+  wishlists:
+    wishlist:
+      all: 'All games'
+      released: 'Released games'
+      unreleased: 'Unreleased games'
+      description: 'Description'
+      platforms: 'Platforms'
+      genres: 'Genres'
+      release_date: 'Release date'
+      wishlist_delete: 'Delete from wishlist'
+      wishlist_add: 'Add to wishlist'

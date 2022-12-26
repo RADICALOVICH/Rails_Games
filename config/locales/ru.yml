@@ -27,7 +27,7 @@ ru:
     confirm_email:
       success: 'Регистрация прошла успешно'
       error: 'Такого пользователя не существует!'
-      
+
   sessions:
     create:
       success: 'С возвращением,'
@@ -49,8 +49,13 @@ ru:
   global:
     no_authentication: 'Вход уже выполнен'
     authentication: 'Вы не авторизованы'
+    not_right: 'не верный'
 
   form:
+    registration: 'Регистрация'
+    authorization: 'Авторизация'
+    password_reset: 'Сброс пароля'
+    password_update: 'Обновления пароля'
     email: 'Почта'
     name: 'Имя'
     password: 'Пароль'
