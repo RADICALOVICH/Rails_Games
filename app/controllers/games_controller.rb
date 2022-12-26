@@ -13,7 +13,7 @@ class GamesController < ApplicationController
 
   def add
     if current_user&.email != 'valerapolub@gmail.com'
-      flash[:warning] = 'Только для админа!'
+      flash[:warning] = t('.warning')
       redirect_to root_path
     else
       sql = 'search "God of war"; fields name, genres.name, platforms.name, cover.url, first_release_date, summary, screenshots.url;

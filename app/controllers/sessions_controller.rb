@@ -8,22 +8,21 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       if user.email_confirmed
         sign_in(user)
-        flash[:success] = "С возвращением, #{current_user.name}"
+        flash[:success] = "#{t('.success')} #{current_user.name}"
         redirect_to root_path
       else
-        flash[:error] = 'Пожалуйста, активируйте свою учетную запись, следуя
-        инструкции в электронном письме с подтверждением учетной записи'
+        flash[:error] = t('.error')
         redirect_to new_session_path
       end
     else
-      flash[:warning] = 'Ошибка в вводе почты и/или пароля'
+      flash[:warning] = t('.warning')
       redirect_to new_session_path
     end
   end
 
   def destroy
     sign_out
-    flash[:success] = 'Ждем вас снова!'
+    flash[:success] = t('.success')
     redirect_to root_path
   end
 end

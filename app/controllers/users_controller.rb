@@ -11,10 +11,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       UserMailer.registration_confirmation(@user).deliver_later
-      flash[:success] = 'Подтвердите вашу почту в отправленном письме.'
+      flash[:success] = t('.success')
       redirect_to root_path
     else
-      redirect_to new_user_path, notice: 'Ошибка во вводе данных или такой пользователь уже существует'
+      redirect_to new_user_path, notice: t('.notice')
     end
   end
 
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      flash[:success] = 'Данные обновлены'
+      flash[:success] = t('.success')
       redirect_to root_path
     else
       flash[:warning] = current_user.errors.full_messages.to_sentence
@@ -34,13 +34,14 @@ class UsersController < ApplicationController
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
-      flash[:success] = 'Регистрация прошла успешно'
+      flash[:success] = t('.success')
       redirect_to new_session_path
     else
-      flash[:error] = 'Такого пользователя не существует'
+      flash[:error] = t('.error')
       redirect_to root_url
     end
   end
+
   private
 
   def set_user

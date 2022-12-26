@@ -1,13 +1,13 @@
 ru:
   activerecord:
-    models:
+    attributes:
       user:
-        attributes:
-          email: 'Почта'
-          name: 'Имя'
-          password: 'Пароль'
-          password_confirmation: 'Подтверждение пароля'
-          old_password: 'Старый пароль'        
+        email: 'Почта'
+        name: 'Имя'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        old_password: 'Старый пароль'   
+         
   navbar:
     title: 'Игры'
     add_games: 'Добавить игры'
@@ -17,6 +17,39 @@ ru:
     dropdown:
       edit: 'Редактировать профиль'
       log_out: 'Выйти'
+
+  users:
+    create:
+      success: 'Подтвердите вашу почту в отправленном письме'
+      notice: 'Ошибка во вводе данных или такой пользователь уже существует'
+    update:
+      success: 'Данные обновлены'
+    confirm_email:
+      success: 'Регистрация прошла успешно'
+      error: 'Такого пользователя не существует!'
+      
+  sessions:
+    create:
+      success: 'С возвращением,'
+      error: 'Пожалуйста, активируйте свою учетную запись, следуя
+        инструкции в электронном письме с подтверждением учетной записи'
+      warning: 'Ошибка в вводе почты и/или пароля'
+    destroy:
+      success: 'Ждем вас снова!'
+
+  password_resets:
+    create:
+      success: 'Письмо с инструкцией отправлено на почту'
+    update:
+      success: 'Пароль успешно обновлен'
+      warning: 'Введенные пароли не совпадают'
+    edit:
+      warning: 'Не удалось обновить пароль'
+
+  global:
+    no_authentication: 'Вход уже выполнен'
+    authentication: 'Вы не авторизованы'
+
   form:
     email: 'Почта'
     name: 'Имя'
@@ -32,13 +65,17 @@ ru:
     old_password: 'Старый пароль'
     back: 'Назад'
     edit_profile: 'Редактирование профиля'
+
   mailer:
     email_confirmation:
       hello: 'Привет'
       text: 'Спасибо за регистрацию! Чтобы подтвердить регистрацию, щелкните URL-адрес ниже.'
     password_reset:
       text: 'Кто-то запросил сброс пароля для вашего аккаунта. Пожалуйста, пройдите по ссылке.'
+
   games:
+    add:
+      warning: 'Только для админа!'
     index:
       search: 'Поиск'
       wishlist_delete: 'Удалить из желаемого'
@@ -71,6 +108,7 @@ ru:
     change_buttons:
       wishlist_delete: 'Удалить из желаемого'
       wishlist_add: 'Добавить в желаемое'
+
   wishlists:
     wishlist:
       all: 'Все игры'
@@ -82,6 +120,7 @@ ru:
       release_date: 'Дата релиза'
       wishlist_delete: 'Удалить из желаемого'
       wishlist_add: 'Добавить в желаемое'
+
   views:
     pagination:
       first: "&laquo; Первая"
