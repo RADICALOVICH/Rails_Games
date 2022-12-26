@@ -3,19 +3,19 @@
 </div>
 <div id = 'change_buttons'>
   <% if current_page?(:controller => 'wishlists', :action => 'index') %>
-    <div id = 'btn'><%= button_to "Список всех игр", wishlists_index_path,method: :get, class: 'btn btn-primary disabled' %></div>
-    <div id = 'btn'><%= button_to "Уже вышли", wishlists_released_path,method: :get, class: 'btn btn-primary'%></div>
-    <div id = 'btn'><%= button_to "Еще не вышли", wishlists_unreleased_path,method: :get, class: 'btn btn-primary'%></div>
+    <div id = 'btn'><%= button_to t('.all'), wishlists_index_path,method: :get, class: 'btn btn-primary disabled' %></div>
+    <div id = 'btn'><%= button_to t('.released'), wishlists_released_path,method: :get, class: 'btn btn-primary'%></div>
+    <div id = 'btn'><%= button_to t('.unreleased'), wishlists_unreleased_path,method: :get, class: 'btn btn-primary'%></div>
   <% end %>
   <% if current_page?(:controller => 'wishlists', :action => 'released') %>
-    <div id = 'btn'><%= button_to "Список всех игр", wishlists_index_path,method: :get, class: 'btn btn-primary ' %></div>
-    <div id = 'btn'><%= button_to "Уже вышли", wishlists_released_path,method: :get, class: 'btn btn-primary disabled'%></div>
-    <div id = 'btn'><%= button_to "Еще не вышли", wishlists_unreleased_path,method: :get, class: 'btn btn-primary'%></div>
+    <div id = 'btn'><%= button_to t('.all'), wishlists_index_path,method: :get, class: 'btn btn-primary ' %></div>
+    <div id = 'btn'><%= button_to t('.released'), wishlists_released_path,method: :get, class: 'btn btn-primary disabled'%></div>
+    <div id = 'btn'><%= button_to t('.unreleased'), wishlists_unreleased_path,method: :get, class: 'btn btn-primary'%></div>
   <% end %>
   <% if current_page?(:controller => 'wishlists', :action => 'unreleased') %>
-    <div id = 'btn'><%= button_to "Список всех игр", wishlists_index_path,method: :get, class: 'btn btn-primary ' %></div>
-    <div id = 'btn'><%= button_to "Уже вышли", wishlists_released_path,method: :get, class: 'btn btn-primary'%></div>
-    <div id = 'btn'><%= button_to "Еще не вышли", wishlists_unreleased_path,method: :get, class: 'btn btn-primary disabled'%></div>
+    <div id = 'btn'><%= button_to t('.all'), wishlists_index_path,method: :get, class: 'btn btn-primary ' %></div>
+    <div id = 'btn'><%= button_to t('.released'), wishlists_released_path,method: :get, class: 'btn btn-primary'%></div>
+    <div id = 'btn'><%= button_to t('.unreleased'), wishlists_unreleased_path,method: :get, class: 'btn btn-primary disabled'%></div>
   <% end %>
 </div>
 
@@ -33,17 +33,17 @@
           </div>
             <small>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Платформы: <%= game.platforms.join(', ')%></li>
-                <li class="list-group-item">Жанры: <%= game.genres.join(', ')%></li>
-                <li class="list-group-item">Дата релиза: <%= game.release_date.to_s[0..-14]%></li>
+                <li class="list-group-item"><%= t('.platforms') %>: <%= game.platforms.join(', ')%></li>
+                <li class="list-group-item"><%= t('.genres') %>: <%= game.genres.join(', ')%></li>
+                <li class="list-group-item"><%= t('.release_date') %>: <%= game.release_date.to_s[0..-14]%></li>
               </ul>
             </small>
             <div class= 'wishlist-buttons' id = 'wishlist-button_<%=game.id%>'>  
               <% if user_signed_in? %>
                 <% if current_user.wishlist&.include?(game.id)%>
-                  <%= button_to "Удалить из желаемого", wishlists_delete_game_path, params: { game: game.id }, class: 'btn btn-danger'%>
+                  <%= button_to t('.wishlist_delete'), wishlists_delete_game_path, params: { game: game.id }, class: 'btn btn-danger'%>
                 <% else %>
-                  <%= button_to "Добавить в желаемое", games_add_game_path,params: { game: game.id }, class: 'btn btn-primary'%>
+                  <%= button_to t('.wishlist_add'), games_add_game_path,params: { game: game.id }, class: 'btn btn-primary'%>
                 <% end %>
               <% end %>
             </div>

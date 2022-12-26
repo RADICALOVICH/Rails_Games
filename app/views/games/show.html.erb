@@ -4,13 +4,13 @@
     <div class ='col-md-8'>
       <p><%= @game.description %></p>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Платформы: <%= @game.platforms.join(', ')%></li>
-        <li class="list-group-item">Жанры: <%= @game.genres.join(', ')%></li>
-        <li class="list-group-item">Дата релиза: <%= @game.release_date.to_s[0..-14]%></li>
+        <li class="list-group-item"><%= t('.platforms') %>: <%= @game.platforms.join(', ')%></li>
+        <li class="list-group-item"><%= t('.genres') %>: <%= @game.genres.join(', ')%></li>
+        <li class="list-group-item"><%= t('.release_date') %>: <%= @game.release_date.to_s[0..-14]%></li>
       </ul>
     </div>
 </div>
-<h3 class ='text-center'>Скриншоты</h3>
+<h3 class ='text-center'><%= t('.screenshots') %></h3>
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -30,10 +30,10 @@
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Предыдущий</span>
+    <span class="visually-hidden"></span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Следующий</span>
+    <span class="visually-hidden"></span>
   </button>
 </div>

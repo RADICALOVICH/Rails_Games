@@ -7,7 +7,7 @@ ru:
           name: 'Имя'
           password: 'Пароль'
           password_confirmation: 'Подтверждение пароля'
-          old_password: 'Старый пароль'
+          old_password: 'Старый пароль'        
   navbar:
     title: 'Игры'
     add_games: 'Добавить игры'
@@ -38,3 +38,63 @@ ru:
       text: 'Спасибо за регистрацию! Чтобы подтвердить регистрацию, щелкните URL-адрес ниже.'
     password_reset:
       text: 'Кто-то запросил сброс пароля для вашего аккаунта. Пожалуйста, пройдите по ссылке.'
+  games:
+    index:
+      search: 'Поиск'
+      wishlist_delete: 'Удалить из желаемого'
+      wishlist_add: 'Добавить в желаемое'
+      name: 'Название'
+      description: 'Описание'
+      platforms: 'Платформы'
+      genres: 'Жанры'
+      release_date: 'Дата релиза'
+      find: 'Найти'
+    show:
+      wishlist_delete: 'Удалить из желаемого'
+      wishlist_add: 'Добавить в желаемое'
+      description: 'Описание'
+      platforms: 'Платформы'
+      genres: 'Жанры'
+      release_date: 'Дата релиза'
+      screenshots: 'Скриношоты'
+    search:
+      wishlist_delete: 'Удалить из желаемого'
+      wishlist_add: 'Добавить в желаемое'
+      find: 'Найти'
+      result: 'Результаты поиска по'
+      wishlist_delete: 'Удалить из желаемого'
+      wishlist_add: 'Добавить в желаемое'
+      description: 'Описание'
+      platforms: 'Платформы'
+      genres: 'Жанры'
+      release_date: 'Дата релиза'
+    change_buttons:
+      wishlist_delete: 'Удалить из желаемого'
+      wishlist_add: 'Добавить в желаемое'
+  wishlists:
+    wishlist:
+      all: 'Все игры'
+      released: 'Ужы вышли'
+      unreleased: 'Еще не вышли'
+      description: 'Описание'
+      platforms: 'Платформы'
+      genres: 'Жанры'
+      release_date: 'Дата релиза'
+      wishlist_delete: 'Удалить из желаемого'
+      wishlist_add: 'Добавить в желаемое'
+  views:
+    pagination:
+      first: "&laquo; Первая"
+      last: "Последняя &raquo;"
+      previous: "&lsaquo; Пред."
+      next: "След. &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"

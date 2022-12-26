@@ -1,21 +1,21 @@
 <div id = 'all-content'>
   <div class = 'row filter'>
     <div class = 'col-md-8'>
-      <h1>Поиск:</h1>
+      <h1><%= t('index.search') %>:</h1>
       <%= form_with url: games_search_path do |form| %>
         <div class = "mb-3 row">
           <div class = "col-sm-2 col-form-label">
-            <%= form.label :name, 'Название:'%>
+            <%= form.label :name, t('index.name')%>
           </div>
           <div class = "col-sm-10">
             <%= form.text_field :name, class: 'form-control w-25', id: 'name_field' %>
           </div>
         </div>
-        <%= form.submit("Найти", id: 'btn_submit', class: 'btn btn-primary') %>
+        <%= form.submit(t('.find'), id: 'btn_submit', class: 'btn btn-primary') %>
       <% end %>
     </div>
   </div>
-  <h3>Результаты поиска по: "<%= params[:name]%>"</h3>
+  <h3><%= t('.result')%>: "<%= params[:name]%>"</h3>
   <div id = 'game-list'>
     <% @games.each do |game| %>
       <div class="card mb-3" style="max-width: 1000px;", id="card">
@@ -30,21 +30,21 @@
             </div>
               <small>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Платформы: <%= game.platforms.join(', ')%></li>
-                  <li class="list-group-item">Жанры: <%= game.genres.join(', ')%></li>
-                  <li class="list-group-item">Дата релиза: <%= game.release_date.to_s[0..-14]%></li>
+                  <li class="list-group-item"><%= t('.platforms') %>: <%= game.platforms.join(', ')%></li>
+                  <li class="list-group-item"><%= t('.genres') %>: <%= game.genres.join(', ')%></li>
+                  <li class="list-group-item"><%= t('.release_date') %>: <%= game.release_date.to_s[0..-14]%></li>
                 </ul>
               </small>
               <div class= 'wishlist-buttons' id = 'wishlist-button_<%=game.id%>'>  
                 <% if user_signed_in? %>
                   <% if current_user.wishlist&.include?(game.id)%>
-                    <%= button_to "Удалить из желаемого", games_delete_game_path, params: { game: game.id }, class: 'btn btn-danger'%>
+                    <%= button_to t('.wishlist_delete'), games_delete_game_path, params: { game: game.id }, class: 'btn btn-danger'%>
                   <% else %>
-                    <%= button_to "Добавить в желаемое", games_add_game_path,params: { game: game.id }, class: 'btn btn-primary'%>
+                    <%= button_to t('.wishlist_add'), games_add_game_path,params: { game: game.id }, class: 'btn btn-primary'%>
                   <% end %>
                 <% else %>
                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="no">
-                  <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Добавить в желаемое</button>
+                  <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled><%= t('.wishlist_add') %></button>
                 </span>
                 <% end %>
               </div>
