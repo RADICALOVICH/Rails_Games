@@ -48,8 +48,8 @@ RSpec.describe 'game', type: :system do
     end
 
     scenario 'show one game and user is log in' do
-      user = User.create(name: 'testing', email: 'testing@test.com', password: '12',
-        password_confirmation: '12', email_confirmed: 'true')
+      user = User.create(name: 'testing', email: 'testing@test.com', password: 'Testing12_!',
+        password_confirmation: 'Testing12_!', email_confirmed: 'true')
       visit new_session_path
 
       fill_in 'email_field', with: user.email
@@ -67,8 +67,8 @@ RSpec.describe 'game', type: :system do
     end
 
     scenario 'when user log in index' do
-      user = User.create(name: 'testing', email: 'testing@test.com', password: '12',
-        password_confirmation: '12', email_confirmed: 'true')
+      user = User.create(name: 'testing', email: 'testing@test.com', password: 'Testing12_!',
+        password_confirmation: 'Testing12_!', email_confirmed: 'true')
       visit new_session_path
 
       fill_in 'email_field', with: user.email
@@ -80,8 +80,8 @@ RSpec.describe 'game', type: :system do
     end
 
     scenario 'trying to check admin button with regular user' do
-      user = User.create(name: 'testing', email: 'testing@test.com', password: '12',
-        password_confirmation: '12', email_confirmed: 'true')
+      user = User.create(name: 'testing', email: 'Testing12_!', password: '12',
+        password_confirmation: 'Testing12_!', email_confirmed: 'true')
       visit new_session_path
 
       fill_in 'email_field', with: user.email
@@ -95,8 +95,8 @@ RSpec.describe 'game', type: :system do
     end
 
     scenario 'trying to check admin button with admin' do
-      user = User.create(name: 'testing', email: 'valerapolub@gmail.com', password: '12',
-        password_confirmation: '12', email_confirmed: 'true')
+      user = User.create(name: 'testing', email: 'valerapolub@gmail.com', password: 'Testing12_!',
+        password_confirmation: 'Testing12_!', email_confirmed: 'true')
       visit new_session_path
 
       fill_in 'email_field', with: user.email

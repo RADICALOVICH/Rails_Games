@@ -38,6 +38,7 @@ class GamesController < ApplicationController
   end
 
   def search
-    @games = Game.where('lower(name) LIKE ?', "%" + (Game.sanitize_sql_like(params[:name].downcase)) + "%")
+    @games = Game.where('lower(name) LIKE ?',
+                        "%#{Game.sanitize_sql_like(params[:name].downcase)}%")
   end
 end

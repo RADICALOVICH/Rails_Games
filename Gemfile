@@ -46,6 +46,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem 'rails-i18n'
+gem "valid_email2"
 # Use Sass to process CSS
 # gem "sassc-rails"
 gem 'kaminari'

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe UserMailer, type: :mailer do
   context 'when we send registration letter' do
-    let!(:user_params) {{ name: 'test', password: '1234', password_confirmation: '1234', email: 'test@test.com'}}
+    let!(:user_params) {{ name: 'test', password: 'Testing12_!', password_confirmation: 'Testing12_!', email: 'test@test.com'}}
     let!(:user) { User.create(user_params) }
 
     let(:mail) { UserMailer.registration_confirmation(user) }
