@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
+# User
 class UsersController < ApplicationController
   before_action :no_authentication, only: %i[new create]
   before_action :authentication, only: %i[edit update]
   before_action :set_user, only: %i[edit update]
-  
+
   def new
     @user = User.new
   end

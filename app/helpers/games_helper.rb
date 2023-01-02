@@ -2,10 +2,10 @@ module GamesHelper
 
   def get_response(sql)
     HTTParty.post("https://api.igdb.com/v4/games", headers: {'Content-Type' => 'application/json',
-      'Client-ID' => 'sc0xirv6am2awohhclusofg4xmwggv',
-      'Authorization' => 'Bearer kfr137k16orpytawyims43hd6lfuai'},body: sql)
+      'Client-ID' => 'test',
+      'Authorization' => 'Bearer'},body: sql)
   end
-  
+
   def add_to_database(json)
     json.each do |n|
       hash = n.to_h

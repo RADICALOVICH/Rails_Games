@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Password_reset
 class PasswordResetsController < ApplicationController
   before_action :no_authentication
   before_action :check_user_params, only: %i[edit update]

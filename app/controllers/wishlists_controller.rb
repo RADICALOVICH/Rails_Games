@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Wishlist
 class WishlistsController < ApplicationController
   before_action :authentication, only: %i[index released unreleased]
 

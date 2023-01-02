@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <% if current_user.wishlist.include?(game.id)%>
+    <%= button_to "Удалить из желаемого", games_delete_game_path, params: { game: game.id }, class: 'btn btn-danger', id:'wishlist_button'%>
+  <% else %>
+    <%= button_to "Добавить в желаемое", games_add_game_path,params: { game: game.id }, class: 'btn btn-primary', id: 'wishlist_button' %>
+  <% end %>
+<% end %>
